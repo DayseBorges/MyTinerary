@@ -1,0 +1,27 @@
+.containerWelcome {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.name {
+    font-size: 2.5vw;
+    font-weight: 400;
+}
+
+.text {
+    font-size: 2.5vw;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.orange {
+    color: #EC6408;
+}
+
+.imgLogo {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    height: 350px;
+}
