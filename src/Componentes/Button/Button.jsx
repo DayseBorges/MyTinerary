@@ -1,9 +1,12 @@
-import React from "react"
+import React from "react";
+import {TbLocation} from "react-icons/tb";
+import style from "./Button.module.css"
 
-export default Button = () => {
+export const Button = () => {
     return (
-        <button>Button</button>
+        <div className={style.containerButton}>
+            <button className={style.button}><TbLocation /> Explore Cities</button>
+        </div>
     )
-    
 }
 
