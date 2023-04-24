@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Buenos Aires",
+      "url": "https://arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/EWRWZLV7FZEM7C24TIEPFBJCP4.jpg",
+      "continent": "America"
+    },
+    {
+      "name": "Singapure",
+      "url": "https://s30876.pcdn.co/wp-content/uploads/Singapore.jpg.optimal.jpg",
+      "continent": "Asia"
+    },
+    {
+      "name": "Melbourne",
+      "url": "https://gostudyaus.es/wp-content/uploads/2018/10/MEL_header_2-1.jpg",
+      "continent": "Oceania"
+    },
+    {
+      "name": "Rustenburg",
+      "url": "https://www.retail-insight-network.com/wp-content/uploads/sites/18/2022/01/Image-1-Rustenburg-Mall.jpg",
+      "continent": "Africa"
+    }
+  ]
