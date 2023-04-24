@@ -5,7 +5,7 @@ import style from "./Button.module.css"
 export const Button = () => {
     return (
         <div className={style.containerButton}>
-            <button className={style.button}><TbLocation /> Explore Cities</button>
+            <button className={style.button}><TbLocation className={style.icon}/> Explore Cities</button>
         </div>
     )
 }

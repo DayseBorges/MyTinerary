@@ -5,12 +5,20 @@
 }
 
 .button {
+    display: flex;
     padding: 10px;
     border: none;
     background-color: #EC6408;
     color: #E8F1F3;
     font-size: 1vw;
+    font-weight: 600;
     transition: 0.5s;
+    align-items: center;
+}
+
+.icon {
+    font-size: 25px;
+    margin-right: 5px;
 }
 
 .button:hover {
