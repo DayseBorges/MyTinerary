@@ -52,7 +52,7 @@ export const Carrousel = () => {
 
 
   useEffect(()=>{
-    let myInterval = setInterval(forward,2000)
+    let myInterval = setInterval(forward,4000)
     return () => clearInterval(myInterval)
   })
 
