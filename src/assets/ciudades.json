@@ -18,5 +18,45 @@
       "name": "Rustenburg",
       "url": "https://www.retail-insight-network.com/wp-content/uploads/sites/18/2022/01/Image-1-Rustenburg-Mall.jpg",
       "continent": "Africa"
+    },
+    {
+      "name": "Lanai",
+      "url": "https://cdn.audleytravel.com/3409/2431/79/1017242-lanai-hawaii.jpg",
+      "continent": "America"
+    },
+    {
+      "name": "Puerto Morelos",
+      "url": "https://www.delphinusworld.com/hubfs/destacada-puerto-morelos.png",
+      "continent": "America"
+    },
+    {
+      "name": "Tremezzo",
+      "url": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/314611175.jpg?k=58246d3f4f75c7c4f78805e7f978ea287317d7fee41423a0fc4c9c1ed3ed95e1&o=&hp=1",
+      "continent": "Europa"
+    },
+    {
+      "name": "Paris",
+      "url": "https://media.traveler.es/photos/61377a978f298b3a7a5bdbaa/master/pass/98405.jpg",
+      "continent": "Europa"
+    },
+    {
+      "name": "Manadhoo",
+      "url": "https://s3-ap-southeast-1.amazonaws.com/sun.assets/uploads/l_2020_04_29_120721_tyhirf9538p2vdb4oaxegqwnl6jmkscu7z1_EN_.jpg",
+      "continent": "Asia"
+    },
+    {
+      "name": "Los Angeles",
+      "url": "https://griffithobservatory.org/wp-content/uploads/2021/03/cameron-venti-c5GkEd-j5vI-unsplash_noCautionTape-1600x800-1638571089.jpg",
+      "continent": "America"
+    },
+    {
+      "name": "Caibarien",
+      "url": "https://images.visitarcuba.org/Cangrejo-Caibrien.jpg",
+      "continent": "America"
+    },
+    {
+      "name": "Sidney",
+      "url": "https://homeiswhereyourbagis.com/wp-content/uploads/2019/11/Sydney-Opera-und-CBD-Skyline.jpg",
+      "continent": "Oceania"
     }
   ]
