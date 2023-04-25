@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Welcome.module.css";
+import style from "./styles/Welcome.module.css";
 import logo from "../../assets/images/logo.png";
 
 export const Welcome = () => {
