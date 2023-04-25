@@ -6,7 +6,7 @@
 
 .button {
     display: flex;
-    padding: 10px;
+    padding: 5px 10px;
     border: none;
     background-color: #EC6408;
     color: #E8F1F3;
@@ -17,7 +17,7 @@
 }
 
 .icon {
-    font-size: 25px;
+    font-size: 2vw;
     margin-right: 5px;
 }
 
@@ -27,3 +27,18 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 600px){
+    .containerButton {
+       margin-left: 50px;
+       bottom: 0px;
+       top: 10px;
+       width: 200px;
+    }
+    .button {
+        padding: 5px;
+        font-size: 3vw;
+    }
+    .icon {
+        font-size: 4vw;
+    }
+}

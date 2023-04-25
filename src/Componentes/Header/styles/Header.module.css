@@ -1,0 +1,80 @@
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    padding: 8px 0;
+    width: 8vw;
+}
+
+.navLinks {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+    font-size: 1.5vw;
+    transition: 0.3s;
+}
+
+.link:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.profile {
+    margin-right: 20px;
+    font-size: 3vw;
+    color: #EC6408;
+    transition: 0.3s;
+}
+
+.profile:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 600px){
+    .containerHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/*********************Mobile*******************/
+
+.containerHeaderMobile {
+    display: flex;
+    gap: 55vw;
+    align-items: center;
+}
+
+.logoMobile {
+    display: flex;
+    padding: 8px 0;
+    width: 20vw;
+}
+
+.navLinksMobile {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    list-style: none;
+    align-items: end;
+    justify-content: center;
+    right: 30vw;
+}
+
+.menuIcon {
+    font-size: 8vw;
+    color: #EC6408;
+    position: relative;
+    top: 5px;
+}
+
+.linkMobile {
+    font-size: 4vw;
+}

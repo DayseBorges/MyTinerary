@@ -1,6 +1,6 @@
 import React from "react";
 import {TbLocation} from "react-icons/tb";
-import style from "./Button.module.css"
+import style from "./styles/Button.module.css"
 
 export const Button = () => {
     return (

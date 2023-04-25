@@ -25,3 +25,23 @@
     justify-content: end;
     height: 350px;
 }
+
+@media screen and (max-width: 600px){
+    .containerWelcome {
+        position: relative;
+        margin-left: 50px;
+        margin-top: 10px;
+        width: 250px;
+    }
+    .name {
+        font-size: 4vw;
+
+    }
+    .text {
+        font-size: 4vw;
+        max-width: 250px;
+    }
+    .imgLogo {
+        display: none;
+    }
+}
