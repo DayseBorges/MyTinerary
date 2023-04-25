@@ -12,7 +12,7 @@
     color: #E8F1F3;
     font-size: 1vw;
     font-weight: 600;
-    transition: 0.5s;
+    transition: 0.3s;
     align-items: center;
 }
 
@@ -22,7 +22,8 @@
 }
 
 .button:hover {
-    transition: 0.5s;
+    transition: 0.3s;
     background-color: #585858;
+    cursor: pointer;
 }
 
