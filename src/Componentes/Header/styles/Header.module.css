@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100vw;
 }
 
 .logo {
@@ -48,7 +49,7 @@
 
 .containerHeaderMobile {
     display: flex;
-    gap: 55vw;
+    gap: 68vw;
     align-items: center;
 }
 
@@ -65,7 +66,7 @@
     list-style: none;
     align-items: end;
     justify-content: center;
-    right: 30vw;
+    right: 15vw;
 }
 
 .menuIcon {
