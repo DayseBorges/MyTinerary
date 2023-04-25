@@ -1,6 +1,7 @@
 import {Carrousel} from './Componentes/Carrousel/Carrousel';
 import {Welcome} from './Componentes/Welcome/Welcome';
 import {Button} from './Componentes/Button/Button';
+import Footer from './Componentes/Footer/Footer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Carrousel />
       <Welcome />
       <Button />
+      <Footer/>
     </div>
   );
 }
