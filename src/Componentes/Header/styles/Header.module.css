@@ -8,6 +8,7 @@
 .logo {
     padding: 8px 0;
     width: 5vw;
+    cursor: pointer;
 }
 
 .navLinks {
@@ -73,6 +74,7 @@
     background-color: #e8f1f3ca;
     border-top: 2px solid #EC6408;
     font-size: 10vw;
+    padding-right: 10px;
 }
 
 .menuIcon {
