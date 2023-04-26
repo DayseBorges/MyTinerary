@@ -34,7 +34,7 @@ export const Header = () => {
           </div>
         ) : (
           <div className={style.containerHeaderMobile}>
-            <img className={style.logoMobile} src={logo} alt="logo" />
+            <img onClick={() => navigate("/")} className={style.logoMobile} src={logo} alt="logo" />
             {showMenu && (
               <ul className={style.navLinksMobile}>
                 <motion.li
