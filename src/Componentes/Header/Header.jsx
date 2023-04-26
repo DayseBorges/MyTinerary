@@ -38,6 +38,7 @@ export const Header = () => {
             {showMenu && (
               <ul className={style.navLinksMobile}>
                 <motion.li
+                  onClick={() => navigate("/")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.05}}
@@ -46,6 +47,7 @@ export const Header = () => {
                   Home
                 </motion.li>
                 <motion.li
+                  onClick={() => navigate("/cities")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.10}}
@@ -54,6 +56,7 @@ export const Header = () => {
                   Cities
                 </motion.li>
                 <motion.li
+                  onClick={() => navigate("/contact")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.20}}

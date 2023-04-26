@@ -2,8 +2,12 @@ import React from "react";
 import style from "./styles/Welcome.module.css";
 import logo from "../../assets/images/logo.png";
 import { TbLocation } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 export const Welcome = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={style.containerWelcome}>
@@ -15,7 +19,7 @@ export const Welcome = () => {
           by insiders who know and{" "}
           <span className={style.orange}>love their cities</span>
         </p>
-        <button className={style.button}>
+        <button onClick={() => navigate("/cities")} className={style.button}>
           <TbLocation className={style.icon} /> Explore Cities
         </button>
         </div>
