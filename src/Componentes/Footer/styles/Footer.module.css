@@ -48,6 +48,7 @@
     transition-duration: 300ms;
     background-color: #d3d3d3;
     border-radius: 15px;
+    margin-right: 15px;
 }
 .buttonGitHub:hover {
     transition-duration: 300ms;
@@ -67,5 +68,8 @@
         gap: 10px;
         padding: 10px 0;
         height: auto;
+    }
+    .buttonGitHub {
+        margin-right: 0px;
     }
 }

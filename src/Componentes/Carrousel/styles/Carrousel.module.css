@@ -1,7 +1,7 @@
 .containerMain {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 98vw;
     height: auto;
     align-items: center;
 }
@@ -38,7 +38,7 @@
 .arrowForward {
     position: absolute;
     right: 10px;
-    top: 225px;
+    top: 285px;
     height: 40px;
     width: 40px;
     color: white;
@@ -46,7 +46,7 @@
 .arrowBack {
     position: absolute;
     left: 10px;
-    top: 225px;
+    top: 285px;
     height: 40px;
     width: 40px;
     color: white;
