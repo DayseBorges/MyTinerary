@@ -4,6 +4,7 @@
     width: 90vw;
     justify-content: center;
     gap: 10vw;
+    padding: 15px 0;
 }
 
 .containerLeft {
@@ -42,6 +43,7 @@
     transition: 0.3s;
     align-items: center;
     width: fit-content;
+    margin-top: 2vw;
 }
 
 .icon {
@@ -59,7 +61,7 @@
     .containerWelcome {
         position: relative;
         margin-left: 50px;
-        margin-top: 30px;
+        padding: 40px 0;
         width: 90vw;
     }
     .name {
