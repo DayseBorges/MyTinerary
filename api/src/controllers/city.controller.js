@@ -1,4 +1,4 @@
-const City = require('../database/models');
+const City = require('../models/models');
 
 const citiesControllers = {
     getCities: (req,res)=>{
@@ -21,6 +21,15 @@ const citiesControllers = {
         const {id} = req.params;
         try {
             let city = await City.findByIdAndUpdate(id, {enabled: false});
+            return res.json({response: city}) 
+        } catch (error) {
+            return res.status(400).json({error: error})
+        }
+    },
+    deleteCityForce: async (req, res) => { 
+        const {id} = req.params;
+        try {
+            let city = await City.findByIdAndDelete(id);
             return res.json({response: city}) 
         } catch (error) {
             return res.status(400).json({error: error})

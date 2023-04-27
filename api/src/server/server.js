@@ -3,13 +3,12 @@ const express = require('express');
 const morgan = require('morgan')
 const app = express();
 const PORT = process.env.PORT || 3001;
-const Router = require('./routes')
-const dbConnection = require('./database/connection')
+const dbConnection = require('../database/connection')
 
 //middlewares
 app.use(morgan('dev'))
 app.use(express.json())
-app.use('/api', Router) 
+app.use('/api/city', require('../router/cityRouter')) 
 
 dbConnection()
 
