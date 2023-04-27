@@ -1,26 +1,27 @@
-const City = require('../models/models');
+const City = require('../models/cityModel.js');
+const cityService = require('../services/cityService.js');
 
 const citiesControllers = {
-    getCities: (req,res)=>{
-        res.json({response: 'Ejecutado corretamente!'})
+    getCities: async (req,res)=>{
+        let cities = await cityService.getCities()
+        res.json({response: cities})
     },
     postCity: async (req, res) => {
         const {name, url, country} = req.body
-        let info = {response: '', error: ''}
+        if (!name || !url || !country) return res.status(400).json({error: 'Faltan parametros'})
         try {
-            let find = await City.findOne({name: name.toLowerCase()})
+            let find = await cityService.searchCityByName(name)
             if (find) return res.status(400).json({...info, error: 'Ya existe una ciudad con ese nombre'})
-            info.response = await City.create({name, url, country})
+            let city = await cityService.createCity(name, url, country)
+            res.status(200).json({response: city})
         } catch (error) {
-            error = error
-            console.log(error)
+            res.status(400).json({error})
         }
-        res.json(info)
     },
     deleteCity: async (req, res) => { 
         const {id} = req.params;
         try {
-            let city = await City.findByIdAndUpdate(id, {enabled: false});
+            let city = await cityService.deleteCity(id)
             return res.json({response: city}) 
         } catch (error) {
             return res.status(400).json({error: error})
@@ -29,7 +30,7 @@ const citiesControllers = {
     deleteCityForce: async (req, res) => { 
         const {id} = req.params;
         try {
-            let city = await City.findByIdAndDelete(id);
+            let city = await cityService.deleteForceCity(id)
             return res.json({response: city}) 
         } catch (error) {
             return res.status(400).json({error: error})
@@ -39,7 +40,7 @@ const citiesControllers = {
         const {id} = req.params;
         const {name, url, country} = req.body;
         try {
-            let city = await City.findByIdAndUpdate(id, {name: name, url: url, country: country})
+            let city = await cityService.updateCity(id, name, url, country)
             return res.json({response: city}) 
         }
         catch {
@@ -50,7 +51,7 @@ const citiesControllers = {
         const {id} = req.params;
         const {name} = req.body;
         try {
-            let city = await City.findByIdAndUpdate(id, {name: name})
+            let city = await cityService.updateCity(id, name)
             return res.json({response: city}) 
         }
         catch {

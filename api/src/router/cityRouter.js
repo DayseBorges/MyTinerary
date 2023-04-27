@@ -1,7 +1,7 @@
 const Router = require('express').Router()
 
 // Traemos controllers 
-const citiesControllers = require('../controllers/city.controller')
+const citiesControllers = require('../controllers/cityController')
 const {getCities, postCity, deleteCity, updateCity, updateName} = citiesControllers
 
 Router.get('/', getCities)
