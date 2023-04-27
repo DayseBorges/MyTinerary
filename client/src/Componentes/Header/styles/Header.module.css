@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 100vw;
 }
 
 .logo {
@@ -60,11 +60,9 @@
     display: flex;
     padding: 8px 0;
     width: 20vw;
-    cursor: pointer;
 }
 
 .navLinksMobile {
-    cursor: pointer;
     display: flex;
     position: absolute;
     flex-direction: column;

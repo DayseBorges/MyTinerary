@@ -34,11 +34,14 @@ export const Header = () => {
           </div>
         ) : (
           <div className={style.containerHeaderMobile}>
-            <img onClick={() => navigate("/")} className={style.logoMobile} src={logo} alt="logo" />
+            <img className={style.logoMobile} src={logo} alt="logo" />
             {showMenu && (
-              <ul className={style.navLinksMobile}>
+              <motion.ul                   
+                initial={animateFrom}
+                animate={animateTo}
+                transition={{delay: 0.20}} 
+                className={style.navLinksMobile}>
                 <motion.li
-                  onClick={() => navigate("/")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.05}}
@@ -47,7 +50,6 @@ export const Header = () => {
                   Home
                 </motion.li>
                 <motion.li
-                  onClick={() => navigate("/cities")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.10}}
@@ -56,7 +58,6 @@ export const Header = () => {
                   Cities
                 </motion.li>
                 <motion.li
-                  onClick={() => navigate("/contact")}
                   initial={animateFrom}
                   animate={animateTo}
                   transition={{delay: 0.20}}
@@ -64,7 +65,7 @@ export const Header = () => {
                 >
                   Contact Us
                 </motion.li>
-              </ul>
+              </motion.ul>
             )}
             <div className={style.menuIcon} onClick={handleMenuClick}>
               {showMenu ? <AiOutlineClose /> : <AiOutlineMenu />}
