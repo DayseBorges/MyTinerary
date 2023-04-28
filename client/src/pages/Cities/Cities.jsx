@@ -1,7 +1,10 @@
+import Card from "../../Componentes/Card/Card";
+import style from "./styles/Cities.module.css";
+
 const Cities = () => {
     return ( 
         <>
-        <h1>Cities</h1>
+            <Card />
         </>
     );
 }
