@@ -9,8 +9,8 @@ let cityService = {
         let city = await City.findOne({name: name.toLowerCase()})
         return city
     },
-    createCity: async (name, url, country) => {
-        let city = await City.create({name, url, country})
+    createCity: async (name, url, country, description) => {
+        let city = await City.create({name, url, country, description})
         return city
     },
     deleteCity: async (id) => {
@@ -21,8 +21,8 @@ let cityService = {
         let city = await City.findByIdAndDelete(id);
         return city
     },
-    updateCity: async (id, name, url, country) => {
-        let city = await City.findByIdAndUpdate(id,{name, url, country})
+    updateCity: async (id, name, url, country, description) => {
+        let city = await City.findByIdAndUpdate(id,{name, url, country, description})
         return city
     },
 }
