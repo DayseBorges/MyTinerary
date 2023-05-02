@@ -7,11 +7,13 @@ const PORT = process.env.PORT || 3001;
 const dbConnection = require('../database/connection')
 
 //middlewares
-app.use(cors({
-    origin: 'http://localhost:3000', // Define a origem permitida
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Define os métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'], // Define os cabeçalhos permitidos
-}));
+app.use(cors(
+//     {
+//     origin: 'http://localhost:3000', // Define la origen permitida
+//     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Define los métodos permitidos
+//     allowedHeaders: ['Content-Type', 'Authorization'], // Define los encabezados permitidos
+// }
+));
 
 app.use(morgan('dev'))
 app.use(express.json())

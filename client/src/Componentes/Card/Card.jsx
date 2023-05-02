@@ -5,6 +5,7 @@ import { HiOutlineBookmark } from "react-icons/hi";
 import { IoMdBookmark } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
+import { Link } from "react-router-dom"
 
 const Card = () => {
   const [cities, setCities] = useState([]);
@@ -20,13 +21,18 @@ const Card = () => {
         console.error(error);
       }
     }
-
     fetchData();
   }, []);
 
   const handleClick = (event, pageNumber) => {
     event.preventDefault();
-    setCurrentPage(pageNumber);
+    if (pageNumber > currentPage && currentPage === pageNumbers.length) {
+      setCurrentPage(1);
+    } else if (pageNumber < 1 && currentPage === 1) {
+      setCurrentPage(pageNumbers.length);
+    } else {
+      setCurrentPage(pageNumber);
+    }
   };
 
   const pageNumbers = Array.from(
@@ -49,15 +55,17 @@ const Card = () => {
     <>
       <div className={style.containerCities}>
         {currentCities.map((city) => (
-          <div className={style.containerCard} key={city._id}>
-            <div className={style.icon}>
+          <div className={style.containerCard} key={city._id}> 
+          <div className={style.icon}>
               {city.isSave ? (
                 <IoMdBookmark onClick={() => clickSave(city)} />
               ) : (
                 <HiOutlineBookmark onClick={() => clickSave(city)} />
               )}
             </div>
+            <Link to={`/cities/${city._id}`}>
             <img className={style.image} src={city.url} alt="city image" />
+            </Link>
             <p className={style.country}>{city.country}</p>
             <h2 className={style.city}>{city.name}</h2>
             <p>{city.description}</p>
@@ -68,7 +76,6 @@ const Card = () => {
         <button
           className={style.arrow}
           onClick={(event) => handleClick(event, currentPage - 1)}
-          disabled={currentPage === 1}
         >
           <IoMdArrowDropleftCircle />
         </button>
@@ -76,7 +83,7 @@ const Card = () => {
           <button
             key={number}
             className={
-              currentPage === number ? style.numberActive : style.NumberDisabled
+              currentPage === number ? style.numberActive : style.numberDisabled
             }
             onClick={(event) => handleClick(event, number)}
           >
@@ -86,7 +93,6 @@ const Card = () => {
         <button
           className={style.arrow}
           onClick={(event) => handleClick(event, currentPage + 1)}
-          disabled={currentPage >= pageNumbers.length}
         >
           <IoMdArrowDroprightCircle />
         </button>
