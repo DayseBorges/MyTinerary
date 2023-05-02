@@ -78,7 +78,7 @@
     cursor: pointer;
 }
 
-.NumberDisabled {
+.numberDisabled {
     border: none;
     background-color: #ffffff;
     font-size: 1vw;
