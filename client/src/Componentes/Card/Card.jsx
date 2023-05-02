@@ -20,7 +20,6 @@ const Card = () => {
         console.error(error);
       }
     }
-
     fetchData();
   }, []);
 
