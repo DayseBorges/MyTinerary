@@ -7,12 +7,12 @@ const citiesControllers = {
         res.json({response: cities})
     },
     postCity: async (req, res) => {
-        const {name, url, country} = req.body
-        if (!name || !url || !country) return res.status(400).json({error: 'Faltan parametros'})
+        const {name, url, country, description} = req.body
+        if (!name || !url || !country || !description) return res.status(400).json({error: 'Faltan parametros'})
         try {
             let find = await cityService.searchCityByName(name)
             if (find) return res.status(400).json({...info, error: 'Ya existe una ciudad con ese nombre'})
-            let city = await cityService.createCity(name, url, country)
+            let city = await cityService.createCity(name, url, country, description)
             res.status(200).json({response: city})
         } catch (error) {
             res.status(400).json({error})
@@ -38,9 +38,9 @@ const citiesControllers = {
     },
     updateCity: async (req, res) => {
         const {id} = req.params;
-        const {name, url, country} = req.body;
+        const {name, url, country, description} = req.body;
         try {
-            let city = await cityService.updateCity(id, name, url, country)
+            let city = await cityService.updateCity(id, name, url, country, description)
             return res.json({response: city}) 
         }
         catch {

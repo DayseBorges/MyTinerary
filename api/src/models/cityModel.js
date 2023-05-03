@@ -4,6 +4,7 @@ const citiesSchema = new mongoose.Schema({
     name: { type: String, unique: true, required: true },
     url: { type: String, required: true },
     country: { type: String, required: true },
+    description: { type: String, required: true },
     enabled: { type: Boolean, default: true },
 });
 

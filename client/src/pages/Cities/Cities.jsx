@@ -1,13 +1,15 @@
 import Filterbar from '../../Componentes/Filterbar/Filterbar'
 import styles from './styles/Cities.module.css'
+import Card from "../../Componentes/Card/Card";
+
 
 const Cities = () => {
     return ( 
-        <div className={styles.main}>
-        <Filterbar/>
-        <h1>Cities</h1>
-        </div>
-    );
+        <>
+            <Filterbar />
+            <Card />
+        </>
+   );
 }
  
 export default Cities;

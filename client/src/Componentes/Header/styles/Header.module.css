@@ -27,6 +27,10 @@
     transition: 0.3s;
 }
 
+.linkActive {
+    font-weight: 800;
+}
+
 .profile {
     margin-right: 30px;
     font-size: 3vw;
@@ -72,10 +76,11 @@
     right: 0;
     top: 87px;
     width: 100vw;
-    background-color: #e8f1f3ca;
+    background-color: #ffffffe0;
     border-top: 2px solid #EC6408;
     font-size: 10vw;
     padding-right: 10px;
+    z-index: 10;
 }
 
 .menuIcon {
@@ -89,5 +94,9 @@
     font-size: 5vw;
     letter-spacing: 3px;
     color: #434343;
-    padding: 8px 0;
+    padding: 5px 0;
+}
+
+.linkMobileActive {
+    font-weight: 800;
 }
