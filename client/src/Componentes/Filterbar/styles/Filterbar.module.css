@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-self: start;
+    width: fit-content;
+    justify-self: start;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    border: 1px solid #585858;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+.inputDiv > input {
+    border: none;
+    outline: none;
+}
+
+.countrysButton {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    outline-color: none;
+    border: none;
+    width: fit-content;
+    transition-duration: 300ms;
+    font-size: 16px;
+}
+
+.countrysButton:hover {
+    transform: scale(1.2);
+    transition-duration: 300ms;
+}
+
+.rotateArrow {
+    transform: rotate(180deg);
+    transition-duration: 300ms;
+}
+
+.arrow {
+    transition-duration: 300ms;
+}
+.containerCountrys {
+    display: flex ;
+    flex-direction: column;
+    gap: 6px;
+}
+.checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.deployDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 4px;
+}
+
+@media (max-width: 500px) {
+    .main {
+        align-self: center;
+    }
+}
