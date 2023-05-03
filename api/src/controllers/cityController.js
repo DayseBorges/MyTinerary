@@ -6,6 +6,15 @@ const citiesControllers = {
         let cities = await cityService.getCities()
         res.json({response: cities})
     },
+    getCity: async (req,res)=>{
+        try {
+            let {id} = req.params
+            let city = await cityService.getCity(id)
+            city && res.status(200).json({response: city})
+        } catch (error) {
+            res.status(400).json({error})    
+        }
+    },
     postCity: async (req, res) => {
         const {name, url, country, description} = req.body
         if (!name || !url || !country || !description) return res.status(400).json({error: 'Faltan parametros'})

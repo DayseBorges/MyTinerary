@@ -1,9 +1,17 @@
 const City = require('../models/cityModel')
+const mongoose = require('mongoose')
+
 
 let cityService = {
     getCities: async () => {
         let cities = await City.find({enabled: true})
         return cities
+    },
+    getCity: async (id) => {
+        console.log('Service ',id);
+        let city = await City.findById(id)
+        console.log('Service ',city);
+        return city
     },
     searchCityByName: async (name) => {
         let city = await City.findOne({name: name.toLowerCase()})
