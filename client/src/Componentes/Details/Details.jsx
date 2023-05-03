@@ -4,8 +4,10 @@ import { HiOutlineBookmark } from "react-icons/hi";
 import styles from "./styles/Details.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Details = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   let [city, setCity] = useState("");
   const getCity = async (id) => {
@@ -24,8 +26,13 @@ const Details = () => {
 
   return city ? (
     <main className={styles.main}>
+      <div className={styles.containerButton}>
+        <button onClick={() => navigate("/cities")} className={styles.button}>
+          Back
+        </button>
+      </div>
       <div className={styles.detailsContainer}>
-        <img src={city.url} alt="" className={styles.img} />
+        <img src={city.url} alt="city image" className={styles.img} />
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>
             <p className={styles.city}>{city.name}</p>
@@ -43,7 +50,7 @@ const Details = () => {
       </div>
     </main>
   ) : (
-    <div>No hay city</div>
+    <div>City not found</div>
   );
 };
 
