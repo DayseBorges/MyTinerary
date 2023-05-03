@@ -54,6 +54,7 @@
 
 .pagination {
     display: flex;
+    margin-bottom: 15px;
 }
 
 .arrow {
@@ -71,7 +72,7 @@
 .numberActive {
     color: #EC6408;
     font-weight: 800;
-    font-size: 1vw;
+    font-size: 18px;
     border: none;
     background-color: #ffffff;
     padding: 0 10px;
@@ -81,7 +82,7 @@
 .numberDisabled {
     border: none;
     background-color: #ffffff;
-    font-size: 1vw;
+    font-size: 18px;
     padding: 0 10px;
     cursor: pointer;
 }
