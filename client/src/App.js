@@ -7,9 +7,23 @@ import Footer from './Componentes/Footer/Footer';
 import Home from "./pages/Home/Home"
 import "./App.css"
 import {Routes, Route} from "react-router-dom"
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { bulkCreateCities } from './redux/store/slices/citiesSlice';
+import axios from 'axios'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    axios.get("http://localhost:3001/api/city")
+    .then((res)=>{
+      console.log(res.data.response)
+      dispatch(bulkCreateCities(res.data.response))
+    })
+  },[])
+
   return (
     <div className="App">
       <Header />
