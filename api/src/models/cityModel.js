@@ -6,6 +6,7 @@ const citiesSchema = new mongoose.Schema({
     country: { type: String, required: true },
     description: { type: String, required: true },
     enabled: { type: Boolean, default: true },
+    itineraries: {type: Array, required: false}
 });
 
 const City = mongoose.model('City', citiesSchema);

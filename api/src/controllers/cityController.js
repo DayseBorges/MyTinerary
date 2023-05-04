@@ -20,7 +20,7 @@ const citiesControllers = {
         if (!name || !url || !country || !description) return res.status(400).json({error: 'Faltan parametros'})
         try {
             let find = await cityService.searchCityByName(name)
-            if (find) return res.status(400).json({...info, error: 'Ya existe una ciudad con ese nombre'})
+            if (find) return res.status(400).json({error: 'Ya existe una ciudad con ese nombre'})
             let city = await cityService.createCity(name, url, country, description)
             res.status(200).json({response: city})
         } catch (error) {
