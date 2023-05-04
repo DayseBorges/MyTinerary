@@ -6,23 +6,14 @@ import { IoMdBookmark } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { addOneCity, bulkCreateCities } from "../../redux/store/slices/citiesSlice";
 
 const Card = () => {
-  const [cities, setCities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [citiesPerPage] = useState(4);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await axios.get("http://localhost:3001/api/city");
-        setCities(res.data.response);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
-  }, []);
+  const cities = useSelector((store)=>store.cities.data)
+  const dispatch = useDispatch()
 
   const handleClick = (event, pageNumber) => {
     event.preventDefault();
@@ -48,7 +39,7 @@ const Card = () => {
     const updateCities = cities.map((city) =>
       city._id === clickedSave._id ? { ...city, isSave: !city.isSave } : city
     );
-    setCities(updateCities);
+    dispatch(bulkCreateCities(updateCities))
   };
 
   return (
