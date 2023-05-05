@@ -4,25 +4,22 @@ import { HiOutlineBookmark } from "react-icons/hi";
 import styles from "./styles/Details.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import CreateItinerary from "../CreateItinerary/CreateItinerary";
 
 const Details = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  let [city, setCity] = useState("");
-  const getCity = async (id) => {
-    let { data } = await axios.get(`http://localhost:3001/api/city/${id}`);
-    setCity(data.response);
-  };
-  useEffect(() => {
-    getCity(id);
-  }, []);
+
+  const cities = useSelector((store)=>store.cities.data)
+  const city = cities.find((city)=>city._id === id)
+  console.log(cities,city)
 
   const clickSave = (clickedSave) => {
     const updateCity =
       city.id === clickedSave.id ? { ...city, isSave: !city.isSave } : city;
-    setCity(updateCity);
+    city = updateCity;
   };
 
   return city ? (
@@ -49,6 +46,21 @@ const Details = () => {
             </div>
           </div>
           <p>{city.longDescription}</p>
+        </div>
+      </div>
+      <div className={styles.itinerariesMain}>
+        <p className={styles.itinerariesCounter}>{city.itineraries.length} itineraries</p>
+        <div className={styles.itinerariesContainer}> 
+        {city.itineraries.map((itinerary, index)=>
+          <div className={`${styles.itineraryContainer} ${index % 2 === 1 && styles.rowReverse}`}>
+            <img src={itinerary.url} alt=""/>
+            <div className={`${styles.itineraryTextContainer} ${index % 2 === 1 && styles.textAlignRight}`}>
+              <h5>{itinerary.name}</h5>
+              <p>{itinerary.description}</p>
+              <p className={styles.itineraryPrice}>Cost: {itinerary.price}</p>
+            </div>
+          </div>
+          )}
         </div>
       </div>
     </main>
