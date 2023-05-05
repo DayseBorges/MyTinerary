@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Details = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+
   let [city, setCity] = useState("");
   const getCity = async (id) => {
     let { data } = await axios.get(`http://localhost:3001/api/city/${id}`);
@@ -46,6 +47,11 @@ const Details = () => {
             </div>
           </div>
           <p>{city.longDescription}</p>
+        </div>
+      </div>
+      <div className={styles.itinerariesMain}>
+        <p>3 itineraries</p>
+        <div className={styles.itinerariesContainer}> 
         </div>
       </div>
     </main>
