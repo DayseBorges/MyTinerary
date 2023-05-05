@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Details = () => {
   const { id } = useParams();
+
   let [city, setCity] = useState("");
   const getCity = async (id) => {
     let { data } = await axios.get(`http://localhost:3001/api/city/${id}`);
@@ -41,9 +42,14 @@ const Details = () => {
           <p>{city.longDescription}</p>
         </div>
       </div>
+      <div className={styles.itinerariesMain}>
+        <p>3 itineraries</p>
+        <div className={styles.itinerariesContainer}> 
+        </div>
+      </div>
     </main>
   ) : (
-    <div>No hay city</div>
+    <div>The are not city</div>
   );
 };
 
