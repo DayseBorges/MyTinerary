@@ -1,11 +1,8 @@
-// Pagination.js
-
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./styles/Pagination.module.css";
 import { setPage } from "../../redux/store/slices/citiesSlice";
-import { useEffect } from "react";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -35,11 +32,7 @@ const Pagination = () => {
     dispatch(setPage(page));
   };
 
-  return pages.length === 0 ? (
-    <div>
-      <h1>Loading...</h1>
-    </div>
-  ) : (
+  return (
     <div className={style.pagination}>
       <IoMdArrowDropleftCircle onClick={handlePrev} className={style.arrow} />
       {buttons.map((page) => (

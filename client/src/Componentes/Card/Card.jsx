@@ -11,7 +11,7 @@ const Card = () => {
   const cities = useSelector((store) => store.cities.data);
   const pages = useSelector((store) => store.cities.pages);
   const currentPage = useSelector((store) => store.cities.currentPage);
-  console.log(cities);
+  console.log(pages);
   const dispatch = useDispatch();
 
   const clickSave = (clickedSave) => {
@@ -24,23 +24,26 @@ const Card = () => {
   return (
     <>
       <div className={style.containerCities}>
-        {pages[currentPage - 1].map((city) => (
-          <div className={style.containerCard} key={city._id}>
-            <div className={style.icon}>
-              {city.isSave ? (
-                <IoMdBookmark onClick={() => clickSave(city)} />
-              ) : (
-                <HiOutlineBookmark onClick={() => clickSave(city)} />
-              )}
+        {pages && pages.length === 0 ? (
+          <h1>Loading...</h1> 
+        ) : 
+          pages[currentPage - 1].map((city) => (
+            <div className={style.containerCard} key={city._id}>
+              <div className={style.icon}>
+                {city.isSave ? (
+                  <IoMdBookmark onClick={() => clickSave(city)} />
+                ) : (
+                  <HiOutlineBookmark onClick={() => clickSave(city)} />
+                )}
+              </div>
+              <Link to={`/cities/${city._id}`}>
+                <img className={style.image} src={city.url} alt="city image" />
+              </Link>
+              <p className={style.country}>{city.country}</p>
+              <h2 className={style.city}>{city.name}</h2>
+              <p>{city.description}</p>
             </div>
-            <Link to={`/cities/${city._id}`}>
-              <img className={style.image} src={city.url} alt="city image" />
-            </Link>
-            <p className={style.country}>{city.country}</p>
-            <h2 className={style.city}>{city.name}</h2>
-            <p>{city.description}</p>
-          </div>
-        ))}
+          ))}
       </div>
       <Pagination />
     </>

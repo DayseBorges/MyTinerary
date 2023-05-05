@@ -13,10 +13,12 @@ export const citiesSlice = createSlice({
     name: "cities",
     initialState,
     reducers: {
-        bulkCreateCities: (state,action) => {
+        bulkCreateCities: (state, action) => {
             state.data = action.payload
-            state.pages = paginate(action.payload, citiesPerPage);
             state.currentPage = 1;
+        },
+        formatPages: (state, action) => {
+            state.pages = paginate(action.payload, citiesPerPage);
         },
         addOneCity: (state, action) => {
             const { city } = action.payload
@@ -26,9 +28,9 @@ export const citiesSlice = createSlice({
             return []
         },
         setPage: (state, action) => {
-                state.currentPage = action.payload
+            state.currentPage = action.payload
         },
-    }
+    },
 })
 
 const paginate = (data, pageSize) => {
@@ -41,7 +43,7 @@ const paginate = (data, pageSize) => {
 };
 
 
-export const { bulkCreateCities, addOneCity, resetCities, setPage } = citiesSlice.actions;
+export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages } = citiesSlice.actions;
 
 
 export default citiesSlice.reducer
