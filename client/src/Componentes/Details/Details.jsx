@@ -3,7 +3,6 @@ import { IoMdBookmark } from "react-icons/io";
 import { HiOutlineBookmark } from "react-icons/hi";
 import styles from "./styles/Details.module.css";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import {useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import CreateItinerary from "../CreateItinerary/CreateItinerary";
@@ -48,7 +47,8 @@ const Details = () => {
           <p>{city.longDescription}</p>
         </div>
       </div>
-      <div className={styles.itinerariesMain}>
+      {city.itineraries.length === 3 ? (
+        <div className={styles.itinerariesMain}>
         <p className={styles.itinerariesCounter}>{city.itineraries.length} itineraries</p>
         <div className={styles.itinerariesContainer}> 
         {city.itineraries.map((itinerary, index)=>
@@ -63,8 +63,8 @@ const Details = () => {
           )}
         </div>
       </div>
+      ) : ( <CreateItinerary /> )}
     </main>
-    <CreateItinerary />
     </>
   ) : (
     <div>City not found</div>
