@@ -59,10 +59,6 @@
   transform: scale(1.1);
 }
 
-.containerButton {
-  /* background-color: aqua; */
-}
-
 .button {
   display: flex;
   padding: 5px 10px;
@@ -74,7 +70,6 @@
   transition: 0.3s;
   align-items: center;
   width: fit-content;
-  /* margin-top: 40px; */
 }
 
 .button:hover {

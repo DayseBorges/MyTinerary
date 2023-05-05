@@ -5,6 +5,7 @@ import styles from "./styles/Details.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import CreateItinerary from "../CreateItinerary/CreateItinerary";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -25,6 +26,8 @@ const Details = () => {
   };
 
   return city ? (
+    <>
+    
     <main className={styles.main}>
       <div className={styles.containerButton}>
         <button onClick={() => navigate("/cities")} className={styles.button}>
@@ -49,6 +52,8 @@ const Details = () => {
         </div>
       </div>
     </main>
+    <CreateItinerary />
+    </>
   ) : (
     <div>City not found</div>
   );

@@ -15,18 +15,14 @@ import axios from 'axios'
 function App() {
 
   const dispatch = useDispatch()
-  const location = useLocation()
-  console.log(location);
 
   useEffect(()=>{
-    console.log("se ejecutó el useEffect");
     axios.get("http://localhost:3001/api/city")
     .then((res)=>{
-      console.log("se resolvió la promesa");
       dispatch(bulkCreateCities(res.data.response))
       dispatch(formatPages(res.data.response))
     })
-  }, [dispatch, location.pathname])
+  }, [])
 
   return (
     <div className="App">

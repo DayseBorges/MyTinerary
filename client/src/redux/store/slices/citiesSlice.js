@@ -14,11 +14,12 @@ export const citiesSlice = createSlice({
     initialState,
     reducers: {
         bulkCreateCities: (state, action) => {
-            state.data = action.payload
-            state.currentPage = 1;
+            state.data = action.payload 
+            state.pages = paginate(action.payload, citiesPerPage); 
         },
         formatPages: (state, action) => {
             state.pages = paginate(action.payload, citiesPerPage);
+            state.currentPage = 1;
         },
         addOneCity: (state, action) => {
             const { city } = action.payload
