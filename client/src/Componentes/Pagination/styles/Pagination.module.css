@@ -1,0 +1,48 @@
+.pagination {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    color: #585858;
+    border: none;
+    background-color: #ffffff;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.numberActive {
+    color: #EC6408;
+    font-weight: 800;
+    font-size: 18px;
+    border: none;
+    background-color: #ffffff;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.numberDisabled {
+    border: none;
+    background-color: #ffffff;
+    font-size: 18px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .arrow {
+        font-size: 45px;
+    }
+    
+    .numberActive {
+        font-size: 5vw;
+    }
+    
+    .numberDisabled {
+        font-size: 5vw;
+    }
+}

@@ -1,15 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+const citiesPerPage = 4;
+
+const initialState  = {
     data: [],
+    pages: [],
+    currentPage: 1,
+    citiesPerPage,
 }
 
 export const citiesSlice = createSlice({
     name: "cities",
     initialState,
     reducers: {
-        bulkCreateCities: (state,action) => {
+        bulkCreateCities: (state, action) => {
             state.data = action.payload
+            state.currentPage = 1;
+        },
+        formatPages: (state, action) => {
+            state.pages = paginate(action.payload, citiesPerPage);
         },
         addOneCity: (state, action) => {
             const { city } = action.payload
@@ -17,14 +26,24 @@ export const citiesSlice = createSlice({
         },
         resetCities: (state) => {
             return []
-        }
-    }   
+        },
+        setPage: (state, action) => {
+            state.currentPage = action.payload
+        },
+    },
 })
 
-    
+const paginate = (data, pageSize) => {
+    const pageCount = Math.ceil(data.length / pageSize);
+    const pages = Array.from({ length: pageCount }, (_, i) => {
+      const start = i * pageSize;
+      return data.slice(start, start + pageSize);
+    });
+    return pages;
+};
 
-export const { bulkCreateCities, addOneCity, resetCities } = citiesSlice.actions
 
+export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages } = citiesSlice.actions;
 
 
 export default citiesSlice.reducer
