@@ -19,7 +19,6 @@ function App() {
   useEffect(()=>{
     axios.get("http://localhost:3001/api/city")
     .then((res)=>{
-      console.log(res.data.response)
       dispatch(bulkCreateCities(res.data.response))
     })
   },[])
