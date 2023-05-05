@@ -18,6 +18,7 @@ app.use(cors(
 app.use(morgan('dev'))
 app.use(express.json())
 app.use('/api/city', require('../router/cityRouter')) 
+app.use('/api/itinerary', require('../router/itineraryRouter')) 
 
 dbConnection()
 
