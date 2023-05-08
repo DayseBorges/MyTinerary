@@ -15,7 +15,6 @@ import axios from 'axios'
 function App() {
 
   const dispatch = useDispatch()
-  const location = useLocation()
 
   useEffect(()=>{
     axios.get("http://localhost:3001/api/city")
@@ -23,7 +22,7 @@ function App() {
       dispatch(bulkCreateCities(res.data.response))
       dispatch(formatPages(res.data.response))
     })
-  }, [dispatch, location.pathname])
+  }, [])
 
   return (
     <div className="App">
