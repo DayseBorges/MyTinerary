@@ -17,7 +17,7 @@ const CreateItinerary = () => {
     const url = event.target.elements.url.value;
     const city = id;
     const description = event.target.elements.description.value;
-    const price = event.target.elements.price.value;
+    const price = "$" + event.target.elements.price.value;
     const duration = event.target.elements.duration.value;
 
     const itineraryData = {
@@ -105,7 +105,7 @@ const CreateItinerary = () => {
           <textarea className={style.input} name="description" />
         </label>
         <label className={style.label} htmlFor="price">
-          Price
+          Cost
           <br />
           <input
             className={style.input}
