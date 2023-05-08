@@ -8,22 +8,26 @@ import Home from "./pages/Home/Home"
 import "./App.css"
 import {Routes, Route, useLocation} from "react-router-dom"
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { bulkCreateCities, formatPages } from './redux/store/slices/citiesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { bulkCreateCities, formatPages, getCountrys } from './redux/store/slices/citiesSlice';
 import axios from 'axios'
 
 function App() {
 
   const dispatch = useDispatch()
   const location = useLocation()
+  const cities = useSelector(store => store.cities.data)
 
   useEffect(()=>{
     axios.get("http://localhost:3001/api/city")
     .then((res)=>{
-      dispatch(bulkCreateCities(res.data.response))
-      dispatch(formatPages(res.data.response))
+      if (!cities.length) {
+        dispatch(bulkCreateCities(res.data.response))
+        dispatch(formatPages(res.data.response))
+        dispatch(getCountrys())
+      }
     })
-  }, [dispatch, location.pathname])
+  }, [cities, dispatch, location.pathname])
 
   return (
     <div className="App">
