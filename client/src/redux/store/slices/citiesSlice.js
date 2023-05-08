@@ -31,6 +31,10 @@ export const citiesSlice = createSlice({
         setPage: (state, action) => {
             state.currentPage = action.payload
         },
+        createItinerary: (state, action) => {   
+            state.data.push(action.payload);
+            state.pages = paginate(state.data, citiesPerPage);
+        },
     },
 })
 
@@ -44,7 +48,7 @@ const paginate = (data, pageSize) => {
 };
 
 
-export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages } = citiesSlice.actions;
+export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, createItinerary } = citiesSlice.actions;
 
 
 export default citiesSlice.reducer

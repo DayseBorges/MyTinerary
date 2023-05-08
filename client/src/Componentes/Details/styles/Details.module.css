@@ -126,6 +126,10 @@
 .textAlignRight {
   text-align: right;
 }
+.createItinerary {
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 800px) {
   .detailsContainer {
     flex-direction: column;
