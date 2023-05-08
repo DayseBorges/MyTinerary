@@ -83,7 +83,7 @@
 }
 
 .itinerariesMain {
-  margin: 15px 0;
+  margin: 20px 0;
 
 }
 .itinerariesCounter{
@@ -130,11 +130,31 @@
   display: flex;
   justify-content: center;
 }
-@media (max-width: 800px) {
+
+@media (max-width: 500px) {
   .detailsContainer {
     flex-direction: column;
   }
   .img {
     width: 90vw;
   }
+  .itinerariesContainer {
+    gap: 3rem;
+  }
+  .itineraryContainer {
+    flex-direction: column;
+  }
+  .itineraryContainer > img {
+    width: 280px;
+    height: auto;
+    border-radius: 10px;
+  }
+  .rowReverse {
+    flex-direction: column;
+  }
+  .textAlignRight {
+    text-align: left;
+  }
+  
 }
+
