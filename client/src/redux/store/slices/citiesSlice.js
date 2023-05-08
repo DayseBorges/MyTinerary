@@ -5,6 +5,8 @@ const citiesPerPage = 4;
 const initialState  = {
     data: [],
     pages: [],
+    countrys: [],
+    backup: [],
     currentPage: 1,
     citiesPerPage,
 }
@@ -14,8 +16,25 @@ export const citiesSlice = createSlice({
     initialState,
     reducers: {
         bulkCreateCities: (state, action) => {
-            state.data = action.payload 
+            state.data = action.payload
+            state.backup = action.payload
+            state.currentPage = 1;
             state.pages = paginate(action.payload, citiesPerPage); 
+        },
+        getCountrys: (state) => {
+            const cities = state.data
+            state.countrys = Array.from(new Set(cities.map((city)=>city.country)))
+        },
+        filterCities: (state, action) => {
+            const {input, countrys} = action.payload
+            if (input) {
+                state.data = state.data.filter((city)=> city.name.toLowerCase().includes(input.toLowerCase()))
+            } else if (countrys.length) {
+                let filtered = []
+                countrys.forEach((country)=> state.data.map((city)=> {city.country === country && filtered.push(city)}))
+                state.data = filtered
+            }
+            
         },
         formatPages: (state, action) => {
             state.pages = paginate(action.payload, citiesPerPage);
@@ -30,6 +49,9 @@ export const citiesSlice = createSlice({
         },
         setPage: (state, action) => {
             state.currentPage = action.payload
+        },
+        backupCities: (state) => {
+            state.data = state.backup
         },
         createItinerary: (state, action) => {   
             state.data.push(action.payload);
@@ -48,7 +70,9 @@ const paginate = (data, pageSize) => {
 };
 
 
-export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, createItinerary } = citiesSlice.actions;
+
+export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, getCountrys, filterCities, backupCities, createItinerary } = citiesSlice.actions;
+
 
 
 export default citiesSlice.reducer

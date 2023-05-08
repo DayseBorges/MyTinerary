@@ -11,7 +11,6 @@ const Card = () => {
   const cities = useSelector((store) => store.cities.data);
   const pages = useSelector((store) => store.cities.pages);
   const currentPage = useSelector((store) => store.cities.currentPage);
-  console.log(pages);
   const dispatch = useDispatch();
 
   const clickSave = (clickedSave) => {
@@ -22,7 +21,7 @@ const Card = () => {
   };
 
   return (
-    <>
+    <div className={style.main}>
       <div className={style.containerCities}>
         {pages && pages.length === 0 ? (
           <h1>Loading...</h1> 
@@ -46,7 +45,7 @@ const Card = () => {
           ))}
       </div>
       <Pagination />
-    </>
+    </div>
   );
 };
 
