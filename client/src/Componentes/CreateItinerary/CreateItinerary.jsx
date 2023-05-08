@@ -1,19 +1,21 @@
-import { useEffect } from "react";
 import style from "./styles/CreateItinerary.module.css";
 import axios from "axios";
 import { createItinerary } from "../../redux/store/slices/citiesSlice";
 import { useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
+import { useParams } from "react-router-dom";
+
 
 const CreateItinerary = () => {
   const dispatch = useDispatch();
+  const { id } = useParams();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const creatorName = event.target.elements.creatorName.value;
     const name = event.target.elements.name.value;
     const url = event.target.elements.url.value;
-    const city = event.target.elements.city.value;
+    const city = id;
     const description = event.target.elements.description.value;
     const price = event.target.elements.price.value;
     const duration = event.target.elements.duration.value;
@@ -31,7 +33,6 @@ const CreateItinerary = () => {
     axios
       .post("http://localhost:3001/api/itinerary", itineraryData)
       .then((res) => {
-        console.log(res.data.response);
         dispatch(createItinerary(res.data.response));
       })
       .catch((error) => {
@@ -41,7 +42,6 @@ const CreateItinerary = () => {
       creatorName &&
       name &&
       url &&
-      city &&
       description &&
       price &&
       duration
@@ -97,16 +97,6 @@ const CreateItinerary = () => {
             type="text"
             name="url"
             placeholder="http"
-          />
-        </label>
-        <label className={style.label} htmlFor="city">
-          City name or url
-          <br />
-          <input
-            className={style.input}
-            type="text"
-            name="city"
-            placeholder="City"
           />
         </label>
         <label className={style.label} htmlFor="description">
