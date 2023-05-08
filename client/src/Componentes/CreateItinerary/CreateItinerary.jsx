@@ -3,11 +3,13 @@ import style from "./styles/CreateItinerary.module.css";
 import axios from "axios";
 import { createItinerary } from "../../redux/store/slices/citiesSlice";
 import { useDispatch } from "react-redux";
+import Swal from 'sweetalert2';
 
 const CreateItinerary = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const creatorName = event.target.elements.creatorName.value;
     const name = event.target.elements.name.value;
     const url = event.target.elements.url.value;
@@ -45,9 +47,21 @@ const CreateItinerary = () => {
       duration
     ) {
       dispatch(createItinerary(itineraryData));
-      alert("Itinerary created");
+      Swal.fire({
+        title: 'Success!',
+        text: 'Itinerary created',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        window.location.reload();
+      });
     } else {
-        alert("Missing Data")
+        Swal.fire({
+            title: 'Error!',
+            text: 'Missing Data',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
     }
   };
 

@@ -2,22 +2,24 @@ import { useParams } from "react-router-dom";
 import { IoMdBookmark } from "react-icons/io";
 import { HiOutlineBookmark } from "react-icons/hi";
 import styles from "./styles/Details.module.css";
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CreateItinerary from "../CreateItinerary/CreateItinerary";
+import { bulkCreateCities } from "../../redux/store/slices/citiesSlice";
 
 const Details = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   let cities = useSelector((store) => store.cities.data);
   let city = cities.find((city) => city._id === id);
 
   const clickSave = (clickedSave) => {
-    let updateCity =
-      city.id === clickedSave.id ? { ...city, isSave: !city.isSave } : city;
-    city = updateCity;
+    const updateCity = cities.map((city) =>
+      city._id === clickedSave._id ? { ...city, isSave: !city.isSave } : city
+    );
+    dispatch(bulkCreateCities(updateCity));
   };
 
   return city ? (

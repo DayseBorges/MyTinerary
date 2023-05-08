@@ -56,3 +56,12 @@
   background-color: #585858;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px){
+  .containerCreate {
+    width: 320px;
+  }
+  .input {
+    width: 200px;
+  }
+}
