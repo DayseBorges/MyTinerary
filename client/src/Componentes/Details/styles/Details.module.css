@@ -63,10 +63,6 @@
   transform: scale(1.1);
 }
 
-.containerButton {
-  /* background-color: aqua; */
-}
-
 .button {
   display: flex;
   padding: 5px 10px;
@@ -78,7 +74,6 @@
   transition: 0.3s;
   align-items: center;
   width: fit-content;
-  /* margin-top: 40px; */
 }
 
 .button:hover {
@@ -131,17 +126,18 @@
 .textAlignRight {
   text-align: right;
 }
-@media (max-width: 800px) {
+.createItinerary {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 500px) {
   .detailsContainer {
     flex-direction: column;
   }
   .img {
     width: 90vw;
   }
-
-}
-
-@media (max-width: 500px) {
   .itinerariesContainer {
     gap: 3rem;
   }

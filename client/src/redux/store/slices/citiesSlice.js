@@ -19,6 +19,7 @@ export const citiesSlice = createSlice({
             state.data = action.payload
             state.backup = action.payload
             state.currentPage = 1;
+            state.pages = paginate(action.payload, citiesPerPage); 
         },
         getCountrys: (state) => {
             const cities = state.data
@@ -36,7 +37,8 @@ export const citiesSlice = createSlice({
             
         },
         formatPages: (state, action) => {
-            state.pages = paginate(state.data, citiesPerPage);
+            state.pages = paginate(action.payload, citiesPerPage);
+            state.currentPage = 1;
         },
         addOneCity: (state, action) => {
             const { city } = action.payload
@@ -51,6 +53,10 @@ export const citiesSlice = createSlice({
         backupCities: (state) => {
             state.data = state.backup
         },
+        createItinerary: (state, action) => {   
+            state.data.push(action.payload);
+            state.pages = paginate(state.data, citiesPerPage);
+        },
     },
 })
 
@@ -64,7 +70,9 @@ const paginate = (data, pageSize) => {
 };
 
 
-export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, getCountrys, filterCities, backupCities } = citiesSlice.actions;
+
+export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, getCountrys, filterCities, backupCities, createItinerary } = citiesSlice.actions;
+
 
 
 export default citiesSlice.reducer

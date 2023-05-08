@@ -15,6 +15,7 @@ import axios from 'axios'
 function App() {
 
   const dispatch = useDispatch()
+
   const location = useLocation()
   const cities = useSelector(store => store.cities.data)
 
