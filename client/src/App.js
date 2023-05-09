@@ -6,7 +6,7 @@ import Details from './Componentes/Details/Details';
 import Footer from './Componentes/Footer/Footer';
 import Home from "./pages/Home/Home"
 import "./App.css"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bulkCreateCities, formatPages, getCountrys } from './redux/store/slices/citiesSlice';
