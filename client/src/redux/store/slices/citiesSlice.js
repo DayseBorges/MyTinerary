@@ -36,7 +36,7 @@ export const citiesSlice = createSlice({
             }
             
         },
-        formatPages: (state, action) => {
+        formatPages: (state) => {
             state.pages = paginate(state.data, citiesPerPage);
             state.currentPage = 1;
         },
