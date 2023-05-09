@@ -19,7 +19,7 @@ export const citiesSlice = createSlice({
             state.data = action.payload
             state.backup = action.payload
             state.currentPage = 1;
-            state.pages = paginate(action.payload, citiesPerPage); 
+            state.pages = paginate(state.data, citiesPerPage); 
         },
         getCountrys: (state) => {
             const cities = state.data
@@ -29,7 +29,7 @@ export const citiesSlice = createSlice({
             const {input, countrys} = action.payload
             if (input) {
                 state.data = state.data.filter((city)=> city.name.toLowerCase().includes(input.toLowerCase()))
-            } else if (countrys.length) {
+            } else if (countrys && countrys.length) {
                 let filtered = []
                 countrys.forEach((country)=> state.data.map((city)=> {city.country === country && filtered.push(city)}))
                 state.data = filtered
@@ -37,7 +37,7 @@ export const citiesSlice = createSlice({
             
         },
         formatPages: (state, action) => {
-            state.pages = paginate(action.payload, citiesPerPage);
+            state.pages = paginate(state.data, citiesPerPage);
             state.currentPage = 1;
         },
         addOneCity: (state, action) => {
