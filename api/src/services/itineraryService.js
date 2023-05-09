@@ -18,7 +18,7 @@ let itineraryService = {
     //     return city
     // },
     createItinerary: async ({name, url, city, description, price, duration, creatorName}) => {
-        let itinerary = await Itinerary.create({name, url, city, description, price, duration, creatorName})
+        let itinerary = await Itinerary.create({name, url, city, description, price, duration, creatorName, likes})
         return itinerary
     },
     // deleteCity: async (id) => {
