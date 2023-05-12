@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
 import { useParams } from "react-router-dom";
 
-
 const CreateItinerary = () => {
   const dispatch = useDispatch();
   const { id } = useParams();

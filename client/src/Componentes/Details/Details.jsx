@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CreateItinerary from "../CreateItinerary/CreateItinerary";
 import { bulkCreateCities } from "../../redux/store/slices/citiesSlice";
+import { TiHeart } from "react-icons/ti"
+import axios from "axios";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -21,6 +23,18 @@ const Details = () => {
     );
     dispatch(bulkCreateCities(updateCity));
   };
+
+  const handleLike = (id) => {
+    axios.post("http://localhost:3001/api/itinerary/likes", {_id: id})
+    .then((res) => {
+      const updatedLikesCount = res.data.likes;
+      axios.get("http://localhost:3001/api/city") 
+      .then(({data}) => dispatch(bulkCreateCities(data.response, updatedLikesCount)))
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 
   return city ? (
     <>
@@ -70,6 +84,9 @@ const Details = () => {
                     <p className={styles.itineraryPrice}>
                       Cost: {itinerary.price}
                     </p>
+                    <p className={`${styles.likeNumber} ${
+                      index % 2 === 1 && styles.likeNumberRight
+                    }`}><TiHeart className={styles.like} onClick={() => handleLike(itinerary._id)} /> {itinerary.likes} </p>
                   </div>
                 </div>
               ))}

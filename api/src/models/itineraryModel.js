@@ -8,7 +8,7 @@ const itinerarySchema = new mongoose.Schema({
     description: { type: String, required: true },
     price: { type: String, required: true },
     duration: {type: Number, required: true},
-    likes: { type: Number },
+    likes: { type: Number, default: 0, required: false},
     enabled: { type: Boolean, default: true },
 });
 
