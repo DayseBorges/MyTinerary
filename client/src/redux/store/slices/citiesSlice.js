@@ -1,15 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const citiesPerPage = 4;
 
-const initialState  = {
-    data: [],
-    pages: [],
-    countrys: [],
-    backup: [],
-    currentPage: 1,
-    citiesPerPage,
-}
+const initialState = {
+  data: [],
+  pages: [],
+  countrys: [],
+  backup: [],
+  currentPage: 1,
+  citiesPerPage,
+};
 
 export const citiesSlice = createSlice({
     name: "cities",
@@ -58,21 +58,35 @@ export const citiesSlice = createSlice({
             state.pages = paginate(state.data, citiesPerPage);
         },
     },
-})
+    backupCities: (state) => {
+      state.data = state.backup;
+    },
+    createItinerary: (state, action) => {
+      state.data.push(action.payload);
+      state.pages = paginate(state.data, citiesPerPage);
+    },
+  },
+});
 
 const paginate = (data, pageSize) => {
-    const pageCount = Math.ceil(data.length / pageSize);
-    const pages = Array.from({ length: pageCount }, (_, i) => {
-      const start = i * pageSize;
-      return data.slice(start, start + pageSize);
-    });
-    return pages;
+  const pageCount = Math.ceil(data.length / pageSize);
+  const pages = Array.from({ length: pageCount }, (_, i) => {
+    const start = i * pageSize;
+    return data.slice(start, start + pageSize);
+  });
+  return pages;
 };
 
+export const {
+  bulkCreateCities,
+  addOneCity,
+  resetCities,
+  setPage,
+  formatPages,
+  getCountrys,
+  filterCities,
+  backupCities,
+  createItinerary,
+} = citiesSlice.actions;
 
-
-export const { bulkCreateCities, addOneCity, resetCities, setPage, formatPages, getCountrys, filterCities, backupCities, createItinerary } = citiesSlice.actions;
-
-
-
-export default citiesSlice.reducer
+export default citiesSlice.reducer;
